@@ -16,5 +16,5 @@ jobs:
 
     - name: 'Build'
       run: |
-        build_AllNoSdv
+        .\build_AllNoSdv.bat
         wdkver -list
