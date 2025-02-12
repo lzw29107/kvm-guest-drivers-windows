@@ -14,7 +14,11 @@ jobs:
       with: 
           submodules: 'true'
 
+    - name: Add msbuild to PATH
+      uses: microsoft/setup-msbuild@v2
+      with:
+        vs-prerelease: true
+
     - name: 'Build'
       run: |
         .\build_AllNoSdv.bat
-        wdkver -list
