@@ -21,4 +21,4 @@ jobs:
 
     - name: 'Build'
       run: |
-        msbuild virtio-win.sln -p:Configuration:Release -p:Platform:ARM64
+        msbuild virtio-win.sln -p:Configuration:"Win11 Release" -p:Platform:ARM64
