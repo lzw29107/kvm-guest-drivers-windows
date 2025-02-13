@@ -21,4 +21,9 @@ jobs:
 
     - name: 'Build'
       run: |
+        Invoke-WebRequest -Uri https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66750/EWDK_co_release_svc_prod3_22000_220715-1440.iso -OutFile EWDK.iso
+        Mount-DiskImage -ImagePath EWDK.iso
+        $DriveLetter = (Get-DiskImage EWDK.iso | Get-Volume).DriveLetter
+        New-Item -ItemType SymbolicLink -Path "c:\ewdk11" -Target "$DriveLetter:\"
+        New-Item -ItemType SymbolicLink -Path "c:\ewdk11_24h2" -Target "$DriveLetter:\"
         .\build_AllNoSdv.bat
